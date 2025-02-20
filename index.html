@@ -131,7 +131,20 @@
         color: yellow; /* Change text color on click */  
         transform: translateY(2px); /* Small push effect */  
     }  
-        </style>    
+        </style>   
+        <style>
+          /* Add animation for fade-in effect */
+          @keyframes fadeIn {
+              0% { opacity: 0; }
+              100% { opacity: 1; }
+          }
+
+          /* Button hover effect */
+          #welcome-section button:hover {
+              background-color: #005f73;
+              transition: background-color 0.3s ease;
+          }
+      </style>
         <title>My First Web App</title>  
     </head>  
     <body>  
@@ -165,13 +178,26 @@
     </div>
 
         <h1 id="welcome-heading" style="display: none;"> Welcome to my Home Page </h1>
-        <!-- Welcome Section (for logged-out users) -->
-        <div id="welcome-section" style="text-align: center; margin-top: 40px; display: none;">
-            <h2>Welcome to Our Dashboard</h2>
-            <p>Please log in to view the products and access exclusive content.</p>
-            <button onclick="showLogin()">Login to See More</button>
+        
+     <!-- Welcome Section with background and animations -->
+      <div id="welcome-section" style="text-align: center; margin-top: 40px; display: none; padding: 50px 20px; background: #f4f4f4; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+          <h2 style="font-size: 2.5rem; font-weight: bold; color: #333;">Welcome to Our Exclusive Dashboard</h2>
+          <p style="font-size: 1.2rem; color: #666; margin-top: 10px;">Sign in to access exclusive products, offers, and much more.</p>
+          <button id="login-button" onclick="showLogin()" style="font-size: 1.2rem; padding: 10px 20px; margin-top: 20px; background-color: #008CBA; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" disabled>
+          Login to See More
+      </button>
 
-        </div>
+          <!-- Additional Animated Content -->
+          <div style="margin-top: 40px;">
+              <p style="font-size: 1.5rem; color: #333; animation: fadeIn 1.5s ease;">Top-rated products just for you!</p>
+              <div style="display: flex; justify-content: center; gap: 20px;">
+                  <img src="product1.jpg" alt="Top Product 1" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                  <img src="product2.jpg" alt="Top Product 2" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                  <img src="product3.jpg" alt="Top Product 3" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+              </div>
+          </div>
+      </div>
+
 
         <!-- Products Section -->  
         <div class="products" id="product-list"></div>
